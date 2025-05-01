@@ -360,3 +360,15 @@ tap_dance_action_t tap_dance_actions[] = {
         [DANCE_1] = ACTION_TAP_DANCE_FN_ADVANCED(on_dance_1, dance_1_finished, dance_1_reset),
         [DANCE_2] = ACTION_TAP_DANCE_FN_ADVANCED(on_dance_2, dance_2_finished, dance_2_reset),
 };
+
+#define GAME 7
+
+bool get_chordal_hold(uint16_t tap_hold_keycode, keyrecord_t* tap_hold_record,
+  uint16_t other_keycode, keyrecord_t* other_record) {
+  if (IS_LAYER_ON(GAME)) {
+    return true;  // Allow all chords on the GAME layer, bypassing Chordal Hold.
+  }
+    
+  // Otherwise defer to the opposite hands rule.
+  return get_chordal_hold_default(tap_hold_record, other_record);
+}
