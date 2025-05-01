@@ -378,12 +378,12 @@ bool get_chordal_hold(uint16_t tap_hold_keycode, keyrecord_t* tap_hold_record,
       }
       break;
 
-    // Allow single handed copy/paste and also the left handed enter key bypass
+    // Allow single handed copy/paste
     case LT(2,KC_SPACE):
-      if (other_keycode == TD(DANCE_0) ||
-          other_keycode == TD(DANCE_1) ||
-          other_keycode == TD(DANCE_2) ||
-          other_keycode == KC_ENTER) {
+      if (other_keycode == KC_X ||
+          other_keycode == KC_C ||
+          // Since Colemak-DH, this is actually V 
+          other_keycode == KC_D) {
         return true;
       }
       break;
