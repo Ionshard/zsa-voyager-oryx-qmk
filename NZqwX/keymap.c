@@ -368,6 +368,26 @@ bool get_chordal_hold(uint16_t tap_hold_keycode, keyrecord_t* tap_hold_record,
   if (IS_LAYER_ON(GAME)) {
     return true;  // Allow all chords on the GAME layer, bypassing Chordal Hold.
   }
+
+  switch (tap_hold_keycode) {
+    // Allow shift when using the navigation layer
+    case LT(3,KC_T):
+    case LT(4,KC_T):
+      if (other_keycode == KC_LEFT_SHIFT) {
+        return true;
+      }
+      break;
+
+    // Allow single handed copy/paste and also the left handed enter key bypass
+    case LT(2,KC_SPACE):
+      if (other_keycode == TD(DANCE_0) ||
+          other_keycode == TD(DANCE_1) ||
+          other_keycode == TD(DANCE_2) ||
+          other_keycode == KC_ENTER) {
+        return true;
+      }
+      break;
+  }
     
   // Otherwise defer to the opposite hands rule.
   return get_chordal_hold_default(tap_hold_record, other_record);
