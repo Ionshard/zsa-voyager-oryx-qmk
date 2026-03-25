@@ -12,9 +12,9 @@ enum custom_keycodes {
 
 
 
-#define DUAL_FUNC_0 LT(4, KC_5)
-#define DUAL_FUNC_1 LT(2, KC_5)
-#define DUAL_FUNC_2 LT(5, KC_D)
+#define DUAL_FUNC_0 LT(7, KC_F14)
+#define DUAL_FUNC_1 LT(14, KC_F20)
+#define DUAL_FUNC_2 LT(11, KC_F8)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_voyager(
@@ -101,7 +101,7 @@ const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM = LAYOUT(
   'L', 'L', 'L', 'L', 'L', 'L', 'R', 'R', 'R', 'R', 'R', 'R', 
   'L', 'L', 'L', 'L', 'L', 'L', 'R', 'R', 'R', 'R', 'R', 'R', 
   'L', 'L', 'L', 'L', 'L', 'L', 'R', 'R', 'R', 'R', 'R', 'R', 
-  'L', 'L', 'R', 'R'
+  '*', '*', '*', '*'
 );
 
 const uint16_t PROGMEM combo0[] = { KC_Q, KC_W, KC_F, KC_P, COMBO_END};
