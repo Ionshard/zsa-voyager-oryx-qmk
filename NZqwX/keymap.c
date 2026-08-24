@@ -12,9 +12,13 @@ enum custom_keycodes {
 
 
 
-#define DUAL_FUNC_0 LT(5, KC_J)
-#define DUAL_FUNC_1 LT(14, KC_F10)
-#define DUAL_FUNC_2 LT(8, KC_Y)
+enum tap_dance_codes {
+  DANCE_0,
+};
+
+#define DUAL_FUNC_0 LT(9, KC_F1)
+#define DUAL_FUNC_1 LT(13, KC_F17)
+#define DUAL_FUNC_2 LT(6, KC_F23)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_voyager(
@@ -60,10 +64,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                     KC_MS_BTN1,     KC_MS_BTN2,                                     KC_TRANSPARENT, KC_TRANSPARENT
   ),
   [6] = LAYOUT_voyager(
-    TO(0),          KC_TRANSPARENT, KC_F7,          KC_F8,          KC_F9,          KC_F10,                                         KC_BSLS,        KC_7,           KC_8,           KC_9,           KC_ASTR,        TO(1),          
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_F4,          KC_F5,          KC_F6,          KC_F11,                                         KC_DOT,         KC_4,           KC_5,           KC_6,           KC_MINUS,       KC_ENTER,       
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_F1,          KC_F2,          KC_F3,          KC_F12,                                         KC_BSPC,        KC_1,           KC_2,           KC_3,           KC_PLUS,        KC_TAB,         
-    QK_BOOT,        KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_0,           KC_0,           KC_EQUAL,       KC_TRANSPARENT, KC_TRANSPARENT, 
+    TO(0),          KC_AUDIO_VOL_UP,KC_F7,          KC_F8,          KC_F9,          KC_F10,                                         KC_PLUS,        KC_7,           KC_8,           KC_9,           KC_ASTR,        TO(1),          
+    KC_TRANSPARENT, TD(DANCE_0),    KC_F4,          KC_F5,          KC_F6,          KC_F11,                                         KC_MINUS,       KC_4,           KC_5,           KC_6,           KC_DOT,         KC_ENTER,       
+    KC_TRANSPARENT, KC_AUDIO_VOL_DOWN,KC_F1,          KC_F2,          KC_F3,          KC_F12,                                         KC_BSPC,        KC_1,           KC_2,           KC_3,           KC_SLASH,       KC_TAB,         
+    QK_BOOT,        KC_MEDIA_PREV_TRACK,KC_MEDIA_NEXT_TRACK,KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_0,           KC_0,           KC_EQUAL,       KC_TRANSPARENT, KC_TRANSPARENT, 
                                                     KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT
   ),
   [7] = LAYOUT_voyager(
@@ -88,9 +92,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                     KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT
   ),
   [10] = LAYOUT_voyager(
-    KC_QUOTE,       KC_F7,          KC_F8,          KC_F9,          KC_F10,         KC_INSERT,                                      KC_KP_SLASH,    KC_KP_7,        KC_KP_8,        KC_KP_9,        KC_KP_ASTERISK, KC_TRANSPARENT, 
-    KC_LEFT_ALT,    KC_F4,          KC_F5,          KC_F6,          KC_F11,         KC_PAGE_UP,                                     KC_KP_DOT,      KC_KP_4,        KC_KP_5,        KC_KP_6,        KC_KP_MINUS,    KC_KP_ENTER,    
-    KC_LEFT_SHIFT,  KC_F1,          KC_F2,          KC_F3,          KC_F12,         KC_PGDN,                                        KC_BSPC,        KC_KP_1,        KC_KP_2,        KC_KP_3,        KC_KP_PLUS,     KC_TAB,         
+    KC_QUOTE,       KC_F7,          KC_F8,          KC_F9,          KC_F10,         KC_INSERT,                                      KC_KP_PLUS,     KC_KP_7,        KC_KP_8,        KC_KP_9,        KC_KP_ASTERISK, KC_TRANSPARENT, 
+    KC_LEFT_ALT,    KC_F4,          KC_F5,          KC_F6,          KC_F11,         KC_PAGE_UP,                                     KC_KP_MINUS,    KC_KP_4,        KC_KP_5,        KC_KP_6,        KC_KP_DOT,      KC_KP_ENTER,    
+    KC_LEFT_SHIFT,  KC_F1,          KC_F2,          KC_F3,          KC_F12,         KC_PGDN,                                        KC_BSPC,        KC_KP_1,        KC_KP_2,        KC_KP_3,        KC_KP_SLASH,    KC_TAB,         
     KC_LEFT_CTRL,   KC_LEFT_GUI,    KC_BSPC,        KC_END,         KC_HOME,        KC_DELETE,                                      KC_TRANSPARENT, KC_KP_0,        KC_KP_0,        KC_KP_EQUAL,    KC_TRANSPARENT, KC_TRANSPARENT, 
                                                     KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT
   ),
@@ -139,7 +143,7 @@ const uint8_t PROGMEM ledmap[][RGB_MATRIX_LED_COUNT][3] = {
 
     [5] = { {0,0,0}, {0,0,0}, {0,0,0}, {0,0,255}, {0,0,255}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,255}, {0,0,255}, {0,0,255}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,255}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,255}, {0,0,0}, {0,0,255}, {0,0,255}, {0,0,0}, {0,0,0}, {0,0,255}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,255}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,255}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0} },
 
-    [6] = { {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {212,255,92}, {172,218,204}, {172,218,204}, {172,218,204}, {212,255,92}, {0,0,0}, {41,193,248}, {172,218,204}, {172,218,204}, {172,218,204}, {41,193,248}, {23,217,255}, {0,239,255}, {172,218,204}, {172,218,204}, {172,218,204}, {212,255,92}, {23,217,255}, {0,0,0}, {0,0,0}, {172,218,204}, {212,255,92}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0} },
+    [6] = { {0,0,0}, {132,217,255}, {212,217,255}, {212,217,255}, {212,217,255}, {212,52,255}, {0,0,0}, {132,217,255}, {212,217,255}, {212,217,255}, {212,217,255}, {212,52,255}, {0,0,0}, {132,217,255}, {212,217,255}, {212,217,255}, {212,217,255}, {212,52,255}, {0,0,0}, {132,217,255}, {132,217,255}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {41,193,248}, {172,218,204}, {172,218,204}, {172,218,204}, {41,193,248}, {0,0,0}, {41,193,248}, {172,218,204}, {172,218,204}, {172,218,204}, {96,218,204}, {23,217,255}, {0,239,255}, {172,218,204}, {172,218,204}, {172,218,204}, {96,218,204}, {23,217,255}, {0,0,0}, {0,0,0}, {172,218,204}, {212,255,92}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0} },
 
     [7] = { {23,217,255}, {171,218,204}, {41,132,246}, {171,218,204}, {171,218,204}, {171,218,204}, {132,217,255}, {41,132,246}, {41,132,246}, {41,132,246}, {171,218,204}, {171,218,204}, {132,217,255}, {171,218,204}, {171,218,204}, {171,218,204}, {171,218,204}, {171,218,204}, {212,217,255}, {212,217,255}, {212,217,255}, {132,217,255}, {90,202,225}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,255}, {0,0,255}, {0,0,255}, {0,0,255}, {0,0,255}, {0,0,0}, {0,0,255}, {0,0,255}, {0,0,255}, {0,0,255}, {0,0,255}, {0,0,0}, {0,0,255}, {0,0,255}, {0,0,255}, {0,0,255}, {0,0,255}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0} },
 
@@ -147,7 +151,7 @@ const uint8_t PROGMEM ledmap[][RGB_MATRIX_LED_COUNT][3] = {
 
     [9] = { {23,217,255}, {171,218,204}, {171,218,204}, {171,218,204}, {171,218,204}, {171,218,204}, {132,217,255}, {171,218,204}, {171,218,204}, {171,218,204}, {171,218,204}, {171,218,204}, {132,217,255}, {171,218,204}, {171,218,204}, {171,218,204}, {171,218,204}, {171,218,204}, {132,217,255}, {212,217,255}, {212,255,92}, {212,52,255}, {212,217,255}, {23,217,255}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {212,52,255}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {212,217,255}, {212,255,92}, {212,217,255}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0} },
 
-    [10] = { {23,217,255}, {171,218,204}, {171,218,204}, {171,218,204}, {172,145,254}, {212,217,255}, {132,217,255}, {171,218,204}, {171,218,204}, {171,218,204}, {172,145,254}, {41,132,246}, {132,217,255}, {171,218,204}, {171,218,204}, {171,218,204}, {172,145,254}, {41,132,246}, {132,217,255}, {132,217,255}, {0,239,255}, {41,132,246}, {41,132,246}, {212,217,255}, {0,0,0}, {0,0,0}, {212,255,92}, {132,217,255}, {132,217,255}, {132,217,255}, {212,255,92}, {0,0,0}, {41,193,248}, {132,217,255}, {132,217,255}, {132,217,255}, {41,193,248}, {23,217,255}, {0,239,255}, {132,217,255}, {132,217,255}, {132,217,255}, {212,255,92}, {23,217,255}, {0,0,0}, {0,0,0}, {132,217,255}, {212,255,92}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0} },
+    [10] = { {23,217,255}, {171,218,204}, {171,218,204}, {171,218,204}, {172,145,254}, {212,217,255}, {132,217,255}, {171,218,204}, {171,218,204}, {171,218,204}, {172,145,254}, {41,132,246}, {132,217,255}, {171,218,204}, {171,218,204}, {171,218,204}, {172,145,254}, {41,132,246}, {132,217,255}, {132,217,255}, {0,239,255}, {41,132,246}, {41,132,246}, {212,217,255}, {0,0,0}, {0,0,0}, {41,193,248}, {132,217,255}, {132,217,255}, {132,217,255}, {41,193,248}, {0,0,0}, {41,193,248}, {132,217,255}, {132,217,255}, {132,217,255}, {96,218,204}, {23,217,255}, {0,239,255}, {132,217,255}, {132,217,255}, {132,217,255}, {96,218,204}, {23,217,255}, {0,0,0}, {0,0,0}, {132,217,255}, {212,255,92}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0} },
 
 };
 
@@ -221,14 +225,81 @@ bool rgb_matrix_indicators_user(void) {
 }
 
 
+typedef struct {
+    bool is_press_action;
+    uint8_t step;
+} tap;
 
+enum {
+    SINGLE_TAP = 1,      
+    SINGLE_HOLD,         
+    DOUBLE_TAP,          
+    DOUBLE_HOLD,         
+    DOUBLE_SINGLE_TAP,   
+    MORE_TAPS            
+};
+
+static tap dance_state[1];
+
+uint8_t dance_step(tap_dance_state_t *state);
+
+uint8_t dance_step(tap_dance_state_t *state) {
+    if (state->count == 1) {
+        if (state->interrupted || !state->pressed) return SINGLE_TAP;
+        else return SINGLE_HOLD;
+    } else if (state->count == 2) {
+        if (state->interrupted) return DOUBLE_SINGLE_TAP;
+        else if (state->pressed) return DOUBLE_HOLD;
+        else return DOUBLE_TAP;
+    }
+    return MORE_TAPS;
+}
+
+
+void on_dance_0(tap_dance_state_t *state, void *user_data);
+void dance_0_finished(tap_dance_state_t *state, void *user_data);
+void dance_0_reset(tap_dance_state_t *state, void *user_data);
+
+void on_dance_0(tap_dance_state_t *state, void *user_data) {
+    if(state->count == 3) {
+        tap_code16(KC_MEDIA_PLAY_PAUSE);
+        tap_code16(KC_MEDIA_PLAY_PAUSE);
+        tap_code16(KC_MEDIA_PLAY_PAUSE);
+    }
+    if(state->count > 3) {
+        tap_code16(KC_MEDIA_PLAY_PAUSE);
+    }
+}
+
+void dance_0_finished(tap_dance_state_t *state, void *user_data) {
+    dance_state[0].step = dance_step(state);
+    switch (dance_state[0].step) {
+        case SINGLE_TAP: register_code16(KC_MEDIA_PLAY_PAUSE); break;
+        case DOUBLE_TAP: register_code16(KC_AUDIO_MUTE); break;
+        case DOUBLE_SINGLE_TAP: tap_code16(KC_MEDIA_PLAY_PAUSE); register_code16(KC_MEDIA_PLAY_PAUSE);
+    }
+}
+
+void dance_0_reset(tap_dance_state_t *state, void *user_data) {
+    wait_ms(10);
+    switch (dance_state[0].step) {
+        case SINGLE_TAP: unregister_code16(KC_MEDIA_PLAY_PAUSE); break;
+        case DOUBLE_TAP: unregister_code16(KC_AUDIO_MUTE); break;
+        case DOUBLE_SINGLE_TAP: unregister_code16(KC_MEDIA_PLAY_PAUSE); break;
+    }
+    dance_state[0].step = 0;
+}
+
+tap_dance_action_t tap_dance_actions[] = {
+        [DANCE_0] = ACTION_TAP_DANCE_FN_ADVANCED(on_dance_0, dance_0_finished, dance_0_reset),
+};
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
   case QK_MODS ... QK_MODS_MAX:
     // Mouse and consumer keys (volume, media) with modifiers work inconsistently across operating systems,
     // this makes sure that modifiers are always applied to the key that was pressed.
-    if (IS_MOUSE_KEYCODE(QK_MODS_GET_BASIC_KEYCODE(keycode))) {
+    if (IS_MOUSE_KEYCODE(QK_MODS_GET_BASIC_KEYCODE(keycode)) || IS_CONSUMER_KEYCODE(QK_MODS_GET_BASIC_KEYCODE(keycode))) {
       if (record->event.pressed) {
         add_mods(QK_MODS_GET_MODS(keycode));
         send_keyboard_report();
